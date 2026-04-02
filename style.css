@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+h1, h2, h3 {
+    font-family: 'Lobster', cursive;
+}
+
+
+body {
+    background-color: #38b6ff;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* --- SIDEBAR STYLES --- */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #8e8e8e;
+    padding: 40px 20px;
+    position: fixed;
+    left: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+
+/* Class saat sidebar disembunyikan */
+.sidebar.collapsed {
+    left: -250px;
+}
+
+.profile-section {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin-bottom: 10px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    text-align: center;
+}
+
+.nav-links li {
+    padding: 15px 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* --- MAIN CONTENT STYLES --- */
+.main-content {
+    margin-left: 250px;
+    /* Jarak awal sebesar lebar sidebar */
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.4s ease;
+    padding: 20px;
+}
+
+/* Class saat main content memenuhi layar */
+.main-content.expanded {
+    margin-left: 0;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #000;
+}
+
+.highlight {
+    color: #ffde59;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.uni-info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.unri-logo {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.uni-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* --- MENU TOGGLE BUTTON --- */
+.menu-toggle {
+    display: block;
+    /* Selalu muncul */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    z-index: 1100;
+    cursor: pointer;
+    background: #1a1a1a;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SECTION STYLES --- */
+.section {
+    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- TENTANG SAYA --- */
+.about-container {
+    display: grid;
+    /* Membuat dua kolom: satu untuk foto, satu untuk teks */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    /* Kunci utama: Menyelaraskan item di atas agar rata */
+    align-items: flex-start;
+    padding: 20px 0; /* Memberi sedikit ruang vertikal */
+}
+
+/* Kotak teks "Tentang Saya" */
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Memusatkan teks secara vertikal dalam kolomnya */
+    height: 100%; /* Memastikan tingginya sama dengan kolom foto */
+    text-indent: 40px;
+}
+
+.photo-gallery {
+    display: grid;
+    /* Membuat 2 kolom untuk foto */
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.photo-card {
+    /* Menghilangkan background abu-abu jika foto tidak menutupi penuh */
+    background: transparent; 
+    overflow: hidden;
+    /* Memberikan bingkai putih seperti di gambar */
+    border: 5px solid white; 
+    width: 100%;
+    /* Menentukan tinggi yang sama untuk kedua foto, misal 350px */
+    height: 350px; 
+    border-radius: 20px;
+    /* Menambahkan shadow tipis agar lebih estetis */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    /* Mengisi seluruh area kotak foto, memotong bagian yang berlebih */
+    object-fit: cover; 
+}
+
+/* --- Skills --- */
+.skills {
+    display: flex;
+    gap: 40px;
+    /* Memberi jarak antar kolom */
+    align-items: flex-start;
+    /* Memastikan konten mulai dari atas */
+    padding: 20px;
+}
+
+.skills-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.skills-tech {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* --- GRID EDUCATION --- */
+.grid-container-e {
+    display: grid;
+    /* Membuat 2 kolom dengan lebar yang sama */
+    grid-template-columns: repeat(2, 1fr);
+    /* Memberi jarak antar kotak */
+    gap: 2px;
+    padding: 2px;
+}
+
+.education-card {
+    padding: 2px;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #d1d1d1;
+}
+
+/* --- TIMELINE --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin-left: 50px;
+    padding-left: 40px;
+    border-left: 4px solid black;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -12px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid black;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    left: -52px;
+    top: 5px;
+}
+
+/*--- PENGALAMAN ---*/
+.job {
+    font-weight: bold;
+}
+
+/*--- CONTACT ---*/
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: #333; /* Warna gelap agar kontras dengan konten biru */
+    color: #afafaf;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 50px; /* Memberi jarak dari konten di atasnya */
+    border-top: 3px solid #00d2ff; /* Garis aksen biru di atas footer */
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-content strong {
+    color: #00d2ff; /* Nama Anda menonjol dengan warna biru */
+}
+
+.footer-socials {
+    margin-top: 15px;
+}
+
+.footer-socials a {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.footer-socials a:hover {
+    color: #00d2ff;
+    transform: translateY(-3px); /* Efek melompat kecil saat hover */
+}
+
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        /* Default mobile tidak ada margin */
+        padding: 20px;
+        text-align: left;
+    }
+
+    /* Di mobile, sidebar default-nya sembunyi */
+    .sidebar {
+        left: -250px;
+    }
+
+    /* Munculkan sidebar di mobile saat di-toggle */
+    .sidebar.collapsed {
+        left: 0;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .uni-info {
+        flex-direction: column;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+}
